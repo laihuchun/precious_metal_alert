@@ -1,25 +1,11 @@
 <html>
-<head>
-<script>
-function httpGet(url)
-{
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open("GET", url, false); // false: wait respond
-        xmlHttp.send(null);
-        return xmlHttp.responseText;
-}
-function f()
-{
-        var url = "http://127.0.0.1/cgi-bin/test2?" 
-           + document.getElementById('in').value;
-        document.getElementById('out').innerHTML = httpGet(url);
-}
-</script>
-</head>
-<body>
-<span>command </span><input id='in'></input>
-<button οnclick='f()'>send</button>
-<br/>
-<pre id='out'></pre>
-</body>
+        <link rel="stylesheet" href="jquery.range.css">
+<script src="http://www.youhutong.com/static/js/jquery.js"></script>
+<script src="jquery.range.js"></script>
+        <body>
+
+                
+                <input type="hidden" class="range-slider"  value="25,75"/>
+                
+        </body>
 </html>
