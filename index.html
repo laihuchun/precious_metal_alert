@@ -1,0 +1,67 @@
+<html>
+<meta charset="utf8">
+
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+<h1>
+
+<form name="user_info">
+<button type="button" onclick="loadXMLDoc()">查询实时价格</button>
+<div id="myDiv"></div>
+</form>
+
+<script type="text/javascript">
+function loadXMLDoc()
+{
+var f = document.user_info;
+//var price = f.price.value;
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("POST","./get_price.php",true);
+document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+xmlhttp.send("price");
+}
+</script>
+
+<form action="create.php" method="post">
+产品类型: <select style="font-size:25px;color:blue" name="gold_type" > 
+<option value="gold_long">黄金多</option>
+<option value="gold_short">黄金空</option>
+<option value="silver_long">白银多</option>
+<option value="sliver_short">白银空</option>
+</select>
+<br>
+
+告警通道: <select style="font-size:25px;color:red" name="channel" > 
+<option value="gold_long">微信</option>
+<option value="gold_short">短信</option>
+<option value="silver_long">telegram</option>
+</select>
+<br>
+
+
+告警阈值: <select style="font-size:25px;color:grey" name="alter_method" > 
+<option value="gold_long">获利金额</option>
+<option value="gold_short">产品价格</option>
+</select>
+<br>
+
+获利告警: <input type="text" name="profit_taking"><br>
+<input type="submit">
+</form>
+</h1>
+
+</body>
+</html>
