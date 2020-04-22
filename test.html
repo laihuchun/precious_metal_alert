@@ -5,11 +5,23 @@
         <script src="http://www.youhutong.com/static/js/jquery.js"></script>
         <script src="jquery.range.js"></script>      
         <script type="text/javascript">
-        alert("请认真听讲！！");
+        
+                $('.range-slider').jRange({
+    from: 0,
+    to: 100,
+    step: 1,
+    scale: [0,25,50,75,100],
+    format: '%s',
+    width: 300,
+    showLabels: true,
+    isRange : true
+});
+                
         </script>
         </head>
                 
-                <input type="hidden" class="range-slider"  value="25,75"/>
-             <body>   
+               
+             <body>
+                      <input type="hidden" class="range-slider"  value="25,75"/>
         </body>
 </html>
